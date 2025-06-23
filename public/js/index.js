@@ -6,12 +6,11 @@ const elements = {
 };
 
 async function getRandomImage() {
-    const client_id = "Z1q5qNH_EM_NtE8oAJj0w-DRGlxVDT0dj2fT2nWQlL4";
-    const endpoint = `https://api.unsplash.com/photos/random/?client_id=${client_id}`;
+    const endpoint = "http://localhost:8080/api/v1/getRandomImage";
     try {
         const response = await fetch(endpoint);
         const returnedData = await response.json();
-        const receivedPhotoUrl = returnedData.urls.regular;
+        const receivedPhotoUrl = returnedData.data;
 
         const imgDiv = document.querySelector(".background-img");
         imgDiv.style.backgroundImage = `url("${receivedPhotoUrl}")`;
@@ -28,7 +27,7 @@ getRandomImage();
 
 const quotes = [
     {
-        quote: "It is possible to commit no mistakes and still lose. That is not weakness; that iis life.",
+        quote: "It is possible to commit no mistakes and still lose. That is not weakness; that is life.",
         author: "Captain Picard",
     },
 
